@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUBAL - Consultoría de Procesos e Integración de IA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B1E33',    /* Azul marino ultra profundo */
+                            navy: '#153050',    /* Azul corporativo */
+                            gold: '#C5A059',    /* Oro/bronce premium */
+                            accent: '#3B82F6',  /* Azul tecnológico */
+                            light: '#F8FAFC'    /* Fondo ultra claro */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        .glow-effect {
+            box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Navegación Dinámica -->
+    <header class="fixed w-full top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div id="nav-container" class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between transition-all duration-300">
+            
+            <!-- Logo Oficial -->
+            <a href="#" class="flex items-center h-full py-1 group">
+                <img src="Logo-Jubal-App-Ok.png" alt="JUBAL Logo" 
+                     id="navbar-logo"
+                     class="h-10 md:h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105" 
+                     style="mix-blend-mode: screen;"
+                     onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+                
+                <div id="logo-fallback" class="hidden items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center text-white font-bold text-lg border border-brand-gold/30">
+                        J
+                    </div>
+                    <div>
+                        <span class="font-extrabold tracking-wider text-xl text-white block leading-none">JUBAL</span>
+                        <span class="text-[9px] text-brand-gold uppercase tracking-widest font-semibold block mt-1">Coaching & Apps</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Menú Desktop -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#posicionamiento" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Posicionamiento</a>
+                <a href="#ruta-operativa" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Ruta Operativa</a>
+                <a href="#mentor" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Sobre Mí</a>
+                <a href="#casos" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Consultorías en Acción</a>
+                <a href="#red-confianza" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Otros Clientes</a>
+                <a href="#ecosistema" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Ecosistema</a>
+            </nav>
+
+            <!-- CTA Header -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5493815218798" target="_blank" class="hidden sm:inline-flex bg-brand-gold hover:bg-brand-gold/90 text-brand-dark text-xs font-bold tracking-wider uppercase px-5 py-3 rounded-lg transition-all duration-300 shadow-md">
+                    Contactar
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-b border-white/10 px-6 py-6 transition-all duration-300">
+            <nav class="flex flex-col gap-4">
+                <a href="#posicionamiento" class="mobile-link text-base font-medium text-slate-300 py-2 border-b border-white/5">Posicionamiento</a>
+                <a href="#ruta-operativa" class="mobile-link text-base font-medium text-slate-300 py-2 border-b border-white/5">Ruta Operativa</a>
+                <a href="#mentor" class="mobile-link text-base font-medium text-slate-300 py-2 border-b border-white/5">Sobre Mí</a>
+                <a href="#casos" class="mobile-link text-base font-medium text-slate-300 py-2 border-b border-white/5">Consultorías en Acción</a>
+                <a href="#red-confianza" class="mobile-link text-base font-medium text-slate-300 py-2 border-b border-white/5">Otros Clientes</a>
+                <a href="#ecosistema" class="mobile-link text-base font-medium text-slate-300 py-2 border-b border-white/5">Ecosistema</a>
+                <a href="https://wa.me/5493815218798" target="_blank" class="w-full text-center bg-brand-gold text-brand-dark text-sm font-bold tracking-wider uppercase py-3 rounded-lg mt-2">
+                    Contactar Vía WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="posicionamiento" class="pt-32 pb-24 md:pt-44 md:pb-36 bg-brand-dark text-white relative overflow-hidden flex items-center min-h-[90vh]">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <svg class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <linearGradient id="grid-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.3"></stop>
+                        <stop offset="100%" stop-color="#0B1E33" stop-opacity="0.9"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M0,80 L1440,240 L1440,800 L0,800 Z" fill="url(#grid-grad)"></path>
+                <g stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.15">
+                    <line x1="0" y1="100" x2="1440" y2="400" />
+                    <line x1="0" y1="200" x2="1440" y2="500" />
+                    <line x1="0" y1="300" x2="1440" y2="600" />
+                    <line x1="200" y1="0" x2="600" y2="800" />
+                    <line x1="600" y1="0" x2="1000" y2="800" />
+                    <line x1="1000" y1="0" x2="1400" y2="800" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-brand-accent/20 blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-gold/10 blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-wider uppercase text-slate-300">Consultoría Estratégica Premium</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                    Multiplica tu rentabilidad. <br>
+                    <span class="text-brand-gold">Minimiza tu esfuerzo.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-light">
+                    JUBAL es una consultoría premium que cierra la brecha entre el diseño de procesos manuales y la integración de IA de vanguardia.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <a href="https://wa.me/5493815218798" target="_blank" class="bg-brand-gold hover:bg-brand-gold/90 text-brand-dark font-bold text-sm tracking-wide uppercase px-8 py-5 rounded-xl text-center transition-all duration-300 shadow-xl shadow-brand-gold/10 flex items-center justify-center gap-3 group">
+                        <span>Iniciar Auditoría Gratuita</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#ruta-operativa" class="bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold text-sm tracking-wide px-8 py-5 rounded-xl text-center transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2">
+                        Ver Ruta Operativa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ruta Operativa Section -->
+    <section id="ruta-operativa" class="py-24 md:py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-brand-accent text-xs font-bold uppercase tracking-widest block mb-3">Metodología Deep-Process</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">La Ruta Operativa</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="text-slate-600">Desde el diagnóstico inicial quirúrgico hasta el despliegue final y soberano de tu propio ecosistema de automatización.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paso 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-slate-200 transition-all duration-300 hover:shadow-lg group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-navy/5 text-brand-navy flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-white transition-colors duration-300">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-2">Fase 1</span>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Auditoría Quirúrgica</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Desglosamos y analizamos de manera implacable tus flujos de trabajo actuales. Identificamos cuellos de botella manuales antes de programar una sola línea de código.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-slate-200 transition-all duration-300 hover:shadow-lg group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-navy/5 text-brand-navy flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-white transition-colors duration-300">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-2">Fase 2</span>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Integración de Backoffice</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Diseñamos e implementamos asistentes avanzados de Inteligencia Artificial dedicados a liberar tu tiempo mental y operativo, acelerando tus entregas.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-slate-200 transition-all duration-300 hover:shadow-lg group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-navy/5 text-brand-navy flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-white transition-colors duration-300">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-2">Fase 3</span>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Soberanía Tecnológica</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Desplegamos el ecosistema integrado de forma óptima para que tú y tu negocio tengan el control absoluto y transparente del software e infraestructura sin ataduras.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí (Mentoría) con Foto y Manifiesto Poético -->
+    <section id="mentor" class="py-24 bg-slate-100 border-t border-b border-slate-200/60 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Columna de Foto (5 Columnas) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative max-w-sm w-full group">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-brand-gold to-brand-accent rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"></div>
+                        <div class="relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-slate-800 p-4 transition-all duration-300">
+                            <div class="aspect-[2/3] w-full rounded-xl bg-slate-900 overflow-hidden relative">
+                                <!-- Intentar cargar .jpeg primero y rebotar automáticamente a .jpg si falla para seguridad absoluta -->
+                                <img src="Foto-Color-Perfil.jpeg" alt="Jubal Alejandro Baca" 
+                                     class="w-full h-full object-cover object-[center_15%] filter contrast-[1.05]"
+                                     onerror="if(this.src.indexOf('.jpeg') !== -1) { this.src='Foto-Color-Perfil.jpg'; } else { this.onerror=null; this.src='https://placehold.co/800x1000/153050/ffffff?text=Jubal+Alejandro+Baca'; }">
+                            </div>
+                            <div class="mt-5 text-center px-2">
+                                <h4 class="text-xl font-bold text-white tracking-wide">Jubal Alejandro Baca</h4>
+                                <p class="text-xs font-bold text-brand-gold tracking-widest uppercase mt-1">Analista de Sistemas</p>
+                                <p class="text-xs text-slate-400 mt-2">Coach de Negocios y Consultor de Procesos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna de Trayectoria y Mantra (7 Columnas) -->
+                <div class="lg:col-span-7">
+                    <span class="text-brand-accent text-xs font-bold uppercase tracking-widest block mb-3">Gobernanza Quirúrgica</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6">Confianza Institucionalizada</h2>
+                    <div class="w-12 h-1 bg-brand-gold mb-8"></div>
+
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8">
+                        Desde 1997 acompaño el crecimiento de emprendedores y PyMEs en la región. Mi enfoque integra herramientas de gestión comercial y resolución constructiva de disputas, respaldado por mi formación en el Programa de Estrategia y Gestión de Negocios de la Florida International University (FIU) y el entrenamiento avanzado en el Modelo Harvard de Negociación y Métodos Alternativos de Resolución de Conflictos. Aplico metodologías de coaching y consultoría estratégica para transformar problemas organizacionales en ventajas competitivas.
+                    </p>
+
+                    <!-- Manifiesto Poético: El Mantra JUBAL -->
+                    <div class="relative bg-brand-dark rounded-2xl p-8 border border-white/10 overflow-hidden group">
+                        <div class="absolute right-4 bottom-4 opacity-5 pointer-events-none transform group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="coffee" class="w-32 h-32 text-white"></i>
+                        </div>
+                        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-3">El Manifiesto JUBAL</span>
+                        <h3 class="text-2xl font-black text-white tracking-tight mb-4">
+                            Barro, café y control.
+                        </h3>
+                        <p class="text-sm text-slate-300 leading-relaxed italic">
+                            "No hacemos contabilidad para el show. Bajamos al barro de las dinámicas operativas y familiares para desatar los nudos de conflicto. Nos sentamos frente a frente con una taza de café para construir acuerdos y, finalmente, devolvemos la soberanía y el control absoluto del negocio al dueño."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Consultorías en Acción (8 Fichas con fotos locales y fallbacks robustos) -->
+    <section id="casos" class="py-24 md:py-32 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-brand-accent text-xs font-bold uppercase tracking-widest block mb-3">Evidencia Empírica de Campo</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Consultorías en Acción</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="text-slate-600">Algunas de las numerosas intervenciones operativas y estratégicas llevadas a cabo en la región.</p>
+            </div>
+
+            <!-- Mosaico Dinámico de 8 Tarjetas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Ficha 1: El Caiquén -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con-Benjamin y Alejandro para Resto EL CAIQUEN.jpg" alt="Resto EL CAIQUEN" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=El+Caiquén';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="utensils" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">Benjamín y Alejandro</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">Resto EL CAIQUEN</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Intervención integral de procesos de caja, inventario y coordinación de personal en gastronomía.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ficha 2: ZOCO -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con- Jose Chebaia para ZOCO.jpg" alt="ZOCO" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=ZOCO';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">José Chebaia</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">ZOCO</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Automatización de procesos administrativos y trazabilidad de control operativo interno.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ficha 3: Movane Muebles -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con- Daniel Movane de Movane Muebles.jpg" alt="Movane Muebles" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=Movane';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="armchair" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">Daniel Movane</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">Movane Muebles</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Optimización logística de fabricación y reestructuración comercial de cara al cliente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ficha 4: Dany Moda y Estilo -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con-Diego Aro de Tienda Dany Moda y Estilo.jpg" alt="Dany Moda y Estilo" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=Dany+Moda';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="tag" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">Diego Aro</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">Dany Moda y Estilo</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Integración de stock multicanal y auditoría fina de costos fijos y variables.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ficha 5: Estudio Modelo Pilates -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con- Prof. Guillermo Conticello de Estudio Modelo Pilates.jpg" alt="Estudio Modelo Pilates" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=Pilates';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">Guillermo Conticello</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">Estudio Modelo Pilates</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Implementación de turnos online y control automatizado de membresías recurrentes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ficha 6: Franco Bonanno -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con-Franco Bonanno Profesional de Tasaciones de Inmuebles.jpg" alt="Franco Bonanno" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=Tasaciones';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="home" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">Franco Bonanno</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">Tasaciones de Inmuebles</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Automatización de bases de datos de inmuebles y gestión inteligente de tasaciones inmobiliarias.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ficha 7: Juan Jugo -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con-Juan Jugo Contratista.jpg" alt="Juan Jugo" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=Contratista';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="hammer" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">Juan Jugo</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">Contratista de Obras</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Control presupuestario analítico y sistematización de rendimientos en obras civiles.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ficha 8: Julio Ramos -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="aspect-[4/3] bg-brand-navy overflow-hidden relative">
+                        <img src="con-Julio Ramos de Casaquinta Los Nogales.jpg" alt="Julio Ramos" 
+                             class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/153050/ffffff?text=Los+Nogales';">
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-brand-dark/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white z-20">
+                            <i data-lucide="tree-pine" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-brand-dark mb-1">Julio Ramos</h4>
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider block mb-3">Casaquinta Los Nogales</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Sistematización comercial y automatización en la administración de reservas de alquiler temporal.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Red de Confianza (Otros Clientes) -->
+    <section id="red-confianza" class="py-24 bg-slate-100 border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-accent text-xs font-bold uppercase tracking-widest block mb-3">Red de Cobertura Comercial</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Otros Negocios en Nuestra Red</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="text-slate-600">Marcas y profesionales independientes que integran nuestro ecosistema continuo de consultoría y gobernanza.</p>
+            </div>
+
+            <!-- Grid de otros clientes con iconos representativos de su actividad -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- Marka (Gastronomía / Pollo) -->
+                <a href="https://instagram.com/markalacasadelpollo" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="utensils" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">La Casa del Pollo</h5>
+                        <span class="text-xs text-slate-500">@markalacasadelpollo</span>
+                    </div>
+                </a>
+
+                <!-- CENIT U.N.T (Educación / Universitario) -->
+                <a href="https://instagram.com/cenit.goprobys.unt" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">CENIT U.N.T</h5>
+                        <span class="text-xs text-slate-500">@cenit.goprobys.unt</span>
+                    </div>
+                </a>
+
+                <!-- ResmaShop (Librería / Impresiones / Oficina) -->
+                <a href="https://instagram.com/resmashop.online" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="printer" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">ResmaShop</h5>
+                        <span class="text-xs text-slate-500">@resmashop.online</span>
+                    </div>
+                </a>
+
+                <!-- Estudio Velardez (Estudio Profesional / Oficina) -->
+                <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60">
+                    <div class="w-10 h-10 rounded-lg bg-brand-navy/5 text-brand-navy flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Estudio Velardez</h5>
+                        <span class="text-xs text-slate-500">San Martin 1156 SMT</span>
+                    </div>
+                </div>
+
+                <!-- A.RIOS Seguros (Seguros / Seguridad) -->
+                <a href="https://instagram.com/arios_seguros" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-green-50 text-green-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="shield" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">A.RIOS Seguros</h5>
+                        <span class="text-xs text-slate-500">@arios_seguros</span>
+                    </div>
+                </a>
+
+                <!-- Carboutique (Automotores) -->
+                <a href="https://instagram.com/car_boutique_usados" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="car" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Carboutique</h5>
+                        <span class="text-xs text-slate-500">@car_boutique_usados</span>
+                    </div>
+                </a>
+
+                <!-- FDiversion (Eventos / Cumpleaños / Diversión) -->
+                <a href="https://instagram.com/fdiversion_" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-pink-50 text-pink-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="party-popper" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">FDiversion</h5>
+                        <span class="text-xs text-slate-500">@fdiversion_</span>
+                    </div>
+                </a>
+
+                <!-- Picón Store (Tienda / Indumentaria) -->
+                <a href="https://instagram.com/picon.store.ar" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Picón Store</h5>
+                        <span class="text-xs text-slate-500">@picon.store.ar</span>
+                    </div>
+                </a>
+
+                <!-- Libreria Lizárraga Hnos. (Libros / Cultura) -->
+                <a href="https://instagram.com/librerializarraga_hnos" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-yellow-50 text-yellow-600 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Libreria Lizárraga</h5>
+                        <span class="text-xs text-slate-500">@librerializarraga_hnos</span>
+                    </div>
+                </a>
+
+                <!-- CDI Rayito de Sol (Infantil / Guardería) -->
+                <a href="https://instagram.com/rayitodesolbarrioantena" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">CDI Rayito de Sol</h5>
+                        <span class="text-xs text-slate-500">Barrio Antena</span>
+                    </div>
+                </a>
+
+                <!-- Fundación S.O.L. (Filantropía / Solidaridad) -->
+                <a href="https://instagram.com/fundacionsoltuc" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-orange-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Fundación S.O.L.</h5>
+                        <span class="text-xs text-slate-500">@fundacionsoltuc</span>
+                    </div>
+                </a>
+
+                <!-- Escudero Refrigeraciones (Soporte Técnico / Climatización) -->
+                <a href="https://instagram.com/escuderorefrigeraciones" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-50 text-cyan-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="snowflake" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Escudero Refrig.</h5>
+                        <span class="text-xs text-slate-500">@escuderorefrigeraciones</span>
+                    </div>
+                </a>
+
+                <!-- Lomo Loco (Gastronomía / Comida Rápida) -->
+                <a href="https://instagram.com/ellomoloco_" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="utensils" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Lomo Loco</h5>
+                        <span class="text-xs text-slate-500">@ellomoloco_</span>
+                    </div>
+                </a>
+
+                <!-- Tierra Sustentable (Ecológico / Sustentabilidad) -->
+                <a href="https://instagram.com/tierrasustentable" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="sprout" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Tierra Sustentable</h5>
+                        <span class="text-xs text-slate-500">@tierrasustentable</span>
+                    </div>
+                </a>
+
+                <!-- BATÁN Renovaciones (Obras / Refacciones) -->
+                <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60">
+                    <div class="w-10 h-10 rounded-lg bg-brand-navy/5 text-brand-navy flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="hammer" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">BATÁN Renovaciones</h5>
+                        <span class="text-xs text-slate-500">Yerba Buena</span>
+                    </div>
+                </div>
+
+                <!-- Yisso Ferretería (Pinturería / Ferretería) -->
+                <a href="https://instagram.com/yissopintureriaferreteria" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="paint-bucket" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Yisso Ferretería</h5>
+                        <span class="text-xs text-slate-500">@yissopintureriaferreteria</span>
+                    </div>
+                </a>
+
+                <!-- Marcelo Navarro (Medios Digitales / Fotografía) -->
+                <a href="https://instagram.com/marcelo.navarro.ofc" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-rose-50 text-rose-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="camera" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Marcelo Navarro</h5>
+                        <span class="text-xs text-slate-500">@marcelo.navarro.ofc</span>
+                    </div>
+                </a>
+
+                <!-- Alejandro Auvieux (Viajes / Cobertura Global) -->
+                <a href="https://instagram.com/alejandroauvieux" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-sky-50 text-sky-500 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Alejandro Auvieux</h5>
+                        <span class="text-xs text-slate-500">@alejandroauvieux</span>
+                    </div>
+                </a>
+
+                <!-- Aldo Ares (Tecnología / Computadoras / Programación) -->
+                <a href="https://facebook.com/aldo.ares" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="laptop" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Aldo Ares</h5>
+                        <span class="text-xs text-slate-500">facebook.com/aldo.ares</span>
+                    </div>
+                </a>
+
+                <!-- Gustavo Arnedo (Deportes de Motor / Competencias) -->
+                <a href="https://instagram.com/arnedo.g" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200/60 hover:border-brand-gold/40 hover:shadow-md transition-all duration-300">
+                    <div class="w-10 h-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="flag" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sm text-brand-dark leading-tight">Gustavo Arnedo</h5>
+                        <span class="text-xs text-slate-500">@arnedo.g</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Impulsado por el Ecosistema de Google -->
+    <section id="ecosistema" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08),transparent_50%)]"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-3">Infraestructura Corporativa</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Impulsado por el Ecosistema de Google</h2>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mb-6"></div>
+                <p class="text-slate-300 text-sm">Aprovechamos infraestructura de nivel empresarial para construir tus soluciones operativas personalizadas sin incurrir en costes de mantenimiento excesivos.</p>
+            </div>
+
+            <!-- Grid de Herramientas -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Google Workspace -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm flex flex-col items-center text-center hover:border-brand-gold/30 transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 p-3 shadow-inner">
+                        <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#34A853"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1">Google Workspace</h3>
+                    <p class="text-xs text-slate-400">Backoffice de colaboración corporativo estable</p>
+                </div>
+
+                <!-- Gemini -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm flex flex-col items-center text-center hover:border-brand-gold/30 transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 p-3 shadow-inner">
+                        <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#1A73E8"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1">Gemini AI</h3>
+                    <p class="text-xs text-slate-400">Automatización inteligente de contenido y análisis</p>
+                </div>
+
+                <!-- AppSheet -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm flex flex-col items-center text-center hover:border-brand-gold/30 transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 p-3 shadow-inner">
+                        <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6H20V18H4V6Z" stroke="#4285F4" stroke-width="2"/>
+                            <path d="M12 10L16 14H8L12 10Z" fill="#EA4335"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1">AppSheet</h3>
+                    <p class="text-xs text-slate-400">Aplicaciones personalizadas de campo en tiempo récord</p>
+                </div>
+
+                <!-- Google Apps Script -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm flex flex-col items-center text-center hover:border-brand-gold/30 transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 p-3 shadow-inner">
+                        <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.4 16.6L4.8 12L9.4 7.4L8 6L2 12L8 18L9.4 16.6ZM14.6 16.6L19.2 12L14.6 7.4L16 6L22 12L16 18L14.6 16.6Z" fill="#F4B400"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1">Google Apps Script</h3>
+                    <p class="text-xs text-slate-400">Integración nativa y automatizaciones sin costos extras</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Corporativo Completo -->
+    <footer class="bg-black border-t border-white/10 py-16 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Columna Info -->
+                <div class="flex flex-col items-start">
+                    <a href="#" class="inline-block mb-6 h-16">
+                        <img src="Logo-Jubal-App-Ok.png" alt="JUBAL Full Logo" class="h-full w-auto object-contain" style="mix-blend-mode: screen;" onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
+                        <div id="footer-logo-fallback" class="hidden font-extrabold tracking-wider text-xl text-white">JUBAL Consulting</div>
+                    </a>
+                    <p class="text-sm leading-relaxed text-slate-400">
+                        Mentoría técnica de alto rendimiento y soluciones de IA para emprendedores. Transición de la atención en redes sociales a la confianza institucionalizada.
+                    </p>
+                </div>
+
+                <!-- Columna Contacto -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Contacto Directo</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-gold"></i>
+                            <a href="tel:3815218798" class="hover:text-white transition-colors">3815218798</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold mt-1 flex-shrink-0"></i>
+                            <span class="text-slate-400">Av. Mate de Luna 1800, SM de Tucumán, Tucumán, 4000, AR</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna Horario -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Disponibilidad de Auditoría</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex justify-between">
+                            <span>Lunes a Viernes:</span>
+                            <span class="font-medium text-white">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábado:</span>
+                            <span class="text-slate-600">Cerrado</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo:</span>
+                            <span class="text-slate-600">Cerrado</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 JUBAL Consulting. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Aviso de Privacidad</a>
+                    <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/5493815218798" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group" aria-label="WhatsApp">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.988 3.311 1.484 5.355 1.485 5.511 0 9.994-4.484 9.997-10 .002-2.674-1.036-5.188-2.924-7.078-1.888-1.89-4.404-2.93-7.082-2.931-5.517 0-10.005 4.486-10.009 10-.001 1.905.492 3.754 1.428 5.385L1.442 22.6l4.24-.925c.348.19.697.38 1.05.54a9.92 9.92 0 0 0 4.315 1.002H11l-.005-.018zM17.487 14.39c-.3-.15-1.774-.875-2.046-.975-.273-.1-.471-.15-.669.15-.198.3-.769.975-.943 1.175-.173.2-.348.225-.648.075-.3-.15-1.266-.467-2.41-1.485-.89-.794-1.49-1.775-1.665-2.075-.173-.3-.018-.462.13-.61.135-.133.3-.349.45-.523.15-.174.2-.299.3-.499.1-.2.05-.375-.025-.524-.075-.15-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.774-.726 2.022-1.429.247-.699.247-1.299.173-1.424-.073-.124-.272-.198-.57-.347z"/>
+        </svg>
+        <span class="absolute right-full mr-3 bg-brand-dark text-white text-xs font-bold tracking-wider uppercase px-3 py-2 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 whitespace-nowrap shadow-xl border border-brand-gold/20">
+            ¿Hablamos de tu negocio?
+        </span>
+    </a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Inicializar iconos
+            lucide.createIcons();
+
+            // Lógica Menú Móvil
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Animación suave del header al hacer scroll
+            const header = document.querySelector('header');
+            const navContainer = document.getElementById('nav-container');
+            const navbarLogo = document.getElementById('navbar-logo');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-xl', 'bg-brand-dark');
+                    navContainer.classList.remove('h-20');
+                    navContainer.classList.add('h-16');
+                    
+                    if (navbarLogo) {
+                        navbarLogo.classList.remove('h-10', 'md:h-12');
+                        navbarLogo.classList.add('h-8', 'md:h-9');
+                    }
+                } else {
+                    header.classList.remove('shadow-xl', 'bg-brand-dark');
+                    navContainer.classList.remove('h-16');
+                    navContainer.classList.add('h-20');
+                    
+                    if (navbarLogo) {
+                        navbarLogo.classList.remove('h-8', 'md:h-9');
+                        navbarLogo.classList.add('h-10', 'md:h-12');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
