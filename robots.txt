@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jubbal.github.io/Consultora/sitemap.xml
