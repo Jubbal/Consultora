@@ -8,45 +8,65 @@
     <title>JUBAL | Consultoría de Procesos e Integración de IA en Tucumán</title>
     <meta name="description" content="JUBAL es una consultoría premium en San Miguel de Tucumán. Especialistas en optimización de procesos manuales, automatización con IA y resolución de conflictos para PyMEs.">
     <meta name="keywords" content="consultoría de procesos, integración IA, consultor de negocios, optimización de empresas, Tucumán, coaching empresarial, automatización AppSheet">
-    <link rel="canonical" href="https://jubal.consulting/" /> <!-- Ajusta con tu URL real -->
+    
+    <!-- URL Canonical Corregida de acuerdo con tu hosting real de GitHub Pages -->
+    <link rel="canonical" href="https://jubbal.github.io/Consultora/" />
 
-    <!-- Open Graph / Redes Sociales -->
+    <!-- Señales GEO para Motores de IA (Local SEO Semántico) -->
+    <meta name="geo.region" content="AR-T" />
+    <meta name="geo.placename" content="San Miguel de Tucumán" />
+    <meta name="geo.position" content="-26.8241;-65.2226" />
+    <meta name="ICBM" content="-26.8241, -65.2226" />
+
+    <!-- Open Graph / Redes Sociales con URL Oficial Corregida -->
     <meta property="og:title" content="JUBAL | Consultoría de Procesos e Integración de IA" />
     <meta property="og:description" content="Multiplica tu rentabilidad. Minimiza tu esfuerzo. Consultoría estratégica y operativa en Tucumán." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jubal.consulting/" />
+    <meta property="og:url" content="https://jubbal.github.io/Consultora/" />
     
-    <!-- Datos Estructurados (Schema.org para Negocio Local) -->
+    <!-- Datos Estructurados Consolidados para IAs (Schema.org) corregidos con tu URL de GitHub -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "JUBAL Consulting",
-      "image": "https://tuweb.com/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. Mate de Luna 1800",
-        "addressLocality": "San Miguel de Tucumán",
-        "addressRegion": "Tucumán",
-        "addressCountry": "AR"
-      },
-      "telephone": "+5493815218798",
-      "url": "https://jubal.consulting/",
-      "description": "Consultoría estratégica de procesos e integración de Inteligencia Artificial para PyMEs."
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://jubbal.github.io/Consultora/#organization",
+          "name": "JUBAL Consulting",
+          "url": "https://jubbal.github.io/Consultora/",
+          "image": "https://jubbal.github.io/Consultora/Logo-Jubal-App-Ok.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Mate de Luna 1800",
+            "addressLocality": "San Miguel de Tucumán",
+            "addressRegion": "Tucumán",
+            "postalCode": "4000",
+            "addressCountry": "AR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -26.8241,
+            "longitude": -65.2226
+          },
+          "telephone": "+5493815218798",
+          "priceRange": "$$$",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          "founder": {
+            "@type": "Person",
+            "name": "Jubal Alejandro Baca",
+            "jobTitle": "Analista de Sistemas, Coach de Negocios y Consultor de Procesos"
+          },
+          "description": "Consultoría premium en San Miguel de Tucumán especializada en optimización de procesos manuales, automatización con IA y resolución de conflictos para PyMEs."
+        }
+      ]
     }
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- ... resto de tus scripts y estilos ... -->
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUBAL - Consultoría de Procesos e Integración de IA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -255,7 +275,6 @@
                         <div class="absolute -inset-4 bg-gradient-to-r from-brand-gold to-brand-accent rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"></div>
                         <div class="relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-slate-800 p-4 transition-all duration-300">
                             <div class="aspect-[2/3] w-full rounded-xl bg-slate-900 overflow-hidden relative">
-                                <!-- Intentar cargar .jpeg primero y rebotar automáticamente a .jpg si falla para seguridad absoluta -->
                                 <img src="Foto-Color-Perfil.jpeg" alt="Jubal Alejandro Baca" 
                                      class="w-full h-full object-cover object-[center_15%] filter contrast-[1.05]"
                                      onerror="if(this.src.indexOf('.jpeg') !== -1) { this.src='Foto-Color-Perfil.jpg'; } else { this.onerror=null; this.src='https://placehold.co/800x1000/153050/ffffff?text=Jubal+Alejandro+Baca'; }">
